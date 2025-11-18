@@ -26,13 +26,15 @@ A real-time, AI-powered platform that:
 
 1. **Streams live telemetry** from ambulance monitors (HR, SpO2, BP)
 2. **Tracks multiple ambulances** simultaneously with independent monitoring
-3. **Auto-calculates 8 clinical scores** (NIHSS, RTS, qSOFA, STEMI, etc.)
-4. **Predicts patient outcomes** using AI (ICU need, intubation, OR, etc.)
-5. **Activates protocols automatically** (STEMI → Cath Lab, Stroke → CT)
-6. **Manages hospital resources** in real-time (ICU beds, CT, OR, Blood)
-7. **Generates AI handoff summaries** when patients arrive
-8. **Tracks EMS treatments** (medications, interventions, fluids given)
-9. **Ensures HIPAA compliance** with Aparavi PII redaction
+3. **Auto-calculates 8 AI Traige clinical scores** (NIHSS, RTS, qSOFA, STEMI, etc.)
+4. **Critical Alert Levels** - Critical, Emergent, Urgent, Non-emergent classification
+5. **Predicts patient requirement outcomes** using AI (ICU need, intubation, OR, etc.)
+6. **Activates protocols automatically** (STEMI → Cath Lab, Stroke → CT)
+7. **Manages hospital resources** in real-time (ICU beds, CT, OR, Blood)
+8. **Generates AI handoff summaries** when patients arrive
+9. **Tracks EMS treatments** (medications, interventions, fluids given)
+10. **Ensures HIPAA compliance** with Aparavi PII redaction
+11. **Treatment History** - CPR, Defibrillation, IV fluids, Airway interventions, Medications
 
 ---
 
