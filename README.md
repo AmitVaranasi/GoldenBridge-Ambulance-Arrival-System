@@ -1,4 +1,4 @@
-# 🚑 Smart Ambulance Pre-Arrival System
+# 🚑 Golden Bridge Ambulance Pre-Arrival System
 
 ## Overview
 
@@ -87,7 +87,7 @@ A real-time, AI-powered platform that:
 
 1. **Clone or navigate to project:**
 ```bash
-cd "Hackathon Project"
+cd "Golden Bridge Ambulance Pre-Arrival System"
 ```
 
 2. **Install dependencies:**
