@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Smart Ambulance Pre-Arrival System** is a comprehensive clinical decision support platform that bridges the communication gap between ambulances and emergency departments. Using real-time data streaming, AI-powered clinical scoring, and automated protocol activation, it transforms passive patient monitoring into active clinical decision support.
+The **Golden Bridge Ambulance Pre-Arrival System** is a comprehensive clinical decision support platform that bridges the communication gap between ambulances and emergency departments. Using real-time data streaming, AI-powered clinical scoring, and automated protocol activation, it transforms passive patient monitoring into active clinical decision support.
 
 Built with the **Pathway Framework** and **Pathway LLM xPack** as required for the hackathon.
 
