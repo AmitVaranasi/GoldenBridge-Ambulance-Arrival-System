@@ -1,0 +1,127 @@
+EMERGENCY DEPARTMENT PROTOCOLS AND GUIDELINES
+
+=== MYOCARDIAL INFARCTION (MI) / ACUTE CORONARY SYNDROME PROTOCOL ===
+
+Recognition Criteria:
+- Chest pain or pressure lasting >20 minutes
+- Pain radiating to left arm, jaw, or back
+- Associated symptoms: diaphoresis, nausea, shortness of breath
+- ECG findings: ST elevation, ST depression, T-wave inversions
+- Elevated cardiac biomarkers (troponin)
+- Risk factors: history of CAD, angina, hypertension, diabetes, smoking, family history
+
+Critical Vitals Thresholds for MI:
+- Heart Rate: Tachycardia (>100 bpm) or bradycardia (<50 bpm)
+- Blood Pressure: Hypotension (<90 systolic) or hypertension (>180 systolic)
+- SpO2: <94% indicates respiratory compromise
+
+Immediate Actions Required:
+1. Activate Catheter Lab immediately (door-to-balloon time goal: <90 minutes)
+2. Cardiology team notification
+3. Prepare for emergent PCI (Percutaneous Coronary Intervention)
+4. Administer:
+   - Aspirin 325mg (if not already given)
+   - Clopidogrel or Ticagrelor loading dose
+   - Heparin bolus
+   - Nitroglycerin (if BP permits)
+   - Morphine for pain control
+5. Continuous cardiac monitoring
+6. 12-lead ECG
+7. Portable chest X-ray
+8. Laboratory: Troponin, CBC, BMP, coagulation studies
+9. Type and screen blood
+10. Establish two large-bore IVs
+
+Special Considerations:
+- If ST-elevation MI (STEMI): Immediate catheter lab activation is priority
+- If blood pressure <90 systolic: Hold nitrates, consider inotropic support
+- If heart rate >150: Consider rate control
+- Prepare for possible complications: cardiogenic shock, arrhythmias
+
+===  CRITICAL VITAL SIGNS - GENERAL ALERT THRESHOLDS ===
+
+CODE BLUE PREP Indicators:
+- Heart Rate: <40 bpm or >150 bpm
+- Blood Pressure: Systolic <70 mmHg
+- SpO2: <85%
+- Rapid deterioration in any vital parameter
+
+CODE BLUE (Cardiac Arrest) Indicators:
+- Heart Rate: 0 bpm (asystole) or pulseless rhythms
+- No blood pressure detectable
+- Patient unresponsive
+
+=== TRAUMA PROTOCOL ===
+
+Recognition Criteria:
+- Motor vehicle collision
+- Fall from height >10 feet
+- Penetrating trauma
+- Multi-system trauma
+- Signs of internal bleeding
+
+Critical Actions:
+1. Activate trauma team
+2. Prepare trauma bay
+3. Ensure blood products available
+4. Surgical team on standby
+5. CT scanner availability
+6. Rapid sequence intubation kit ready
+
+Vital Sign Thresholds:
+- Systolic BP <90: Indicates shock
+- Heart Rate >120: Compensated shock
+- SpO2 <92%: Respiratory compromise
+
+=== STROKE PROTOCOL ===
+
+Recognition Criteria:
+- Sudden onset focal neurological deficit
+- Facial drooping, arm weakness, speech difficulty
+- Time of symptom onset critical
+
+Actions:
+- Activate stroke team
+- Immediate CT scan
+- Consider thrombolytic therapy if within time window
+- Neurologist consultation
+
+=== SEPSIS PROTOCOL ===
+
+Recognition Criteria:
+- Fever or hypothermia
+- Tachycardia, tachypnea
+- Hypotension
+- Altered mental status
+- Source of infection
+
+Actions:
+- Blood cultures before antibiotics
+- Broad-spectrum antibiotics within 1 hour
+- Fluid resuscitation
+- Lactate level
+- Source control
+
+=== GENERAL ER PREPARATION GUIDELINES ===
+
+When ambulance ETA <5 minutes:
+1. Clear appropriate bed in ER
+2. Notify attending physician
+3. Prepare necessary equipment based on complaint
+4. Have nursing team ready for immediate assessment
+5. Ensure monitoring equipment functional
+6. Have emergency medications accessible
+
+Documentation Requirements:
+- All pre-hospital interventions
+- Medication administration times
+- Vital sign trends
+- Patient complaints and symptoms
+- Relevant medical history
+- Allergies
+
+Communication Protocol:
+- EMS should provide update at 10 minutes out
+- Final update at 2-5 minutes out
+- Direct radio communication for critical patients
+- Clear handoff upon arrival with SBAR format
