@@ -1,173 +1,96 @@
-# 🚀 Quick Start Guide - Smart Ambulance Pre-Arrival System
+# Quick Start Guide — Golden Bridge Pre-Arrival System
 
-## ✅ System Status: READY
+## Prerequisites
 
-All components have been tested and are operational!
+- Python 3.8+
+- pip
 
-## 🎯 Running the Dashboard
-
-### Option 1: Run with Demo Mode (No API Key Required)
-
-The dashboard works with simulated data and doesn't require OpenAI for the demo:
+## Install
 
 ```bash
-streamlit run dashboard/er_dashboard.py
-```
-
-This will:
-- Launch a real-time ER dashboard in your browser
-- Show live vital signs monitoring with graphs
-- Display critical alerts and warnings
-- Demonstrate HIPAA-compliant PII redaction
-- Show AI-style recommendations (pre-formatted for demo)
-
-### Option 2: Run with Full AI Integration (Requires OpenAI API Key)
-
-For full RAG-based AI analysis:
-
-1. **Create .env file:**
-```bash
-cp .env.example .env
-```
-
-2. **Edit .env and add your OpenAI API key:**
-```
-OPENAI_API_KEY=sk-your-actual-key-here
-```
-
-3. **Run the dashboard:**
-```bash
-streamlit run dashboard/er_dashboard.py
-```
-
-## 🧪 Testing Individual Components
-
-### Test Telemetry Simulator
-Watch simulated vital signs for 20 seconds:
-```bash
-python simulators/telemetry_simulator.py
-```
-
-### Test EMT Voice Notes
-See voice notes with PII:
-```bash
-python simulators/emt_voice_simulator.py
-```
-
-### Test PII Redaction
-Verify HIPAA compliance:
-```bash
-python utils/pii_redactor.py
-```
-
-### Run Full System Test
-```bash
-python test_system.py
-```
-
-## 📊 What You'll See in the Dashboard
-
-1. **Real-Time Vital Signs Monitor**
-   - Live graphs showing Heart Rate, SpO2, and Blood Pressure
-   - Updates every 2 seconds
-   - Historical trend visualization
-
-2. **Critical Alerts**
-   - CODE BLUE PREP for critical conditions
-   - WARNING for abnormal vitals
-   - Color-coded severity levels
-
-3. **EMT Voice Notes**
-   - Automatically redacted for HIPAA compliance
-   - Names → [PATIENT]
-   - SSN → [SSN-REDACTED]
-   - Other PII masked
-
-4. **AI Recommendations**
-   - Suspected diagnosis
-   - Preparation steps for ER team
-   - Protocol-based recommendations
-   - Time-sensitive actions
-
-5. **Patient Status**
-   - Current metrics
-   - ETA countdown
-   - Severity indicators
-
-## 🎬 Demo Scenario
-
-The system simulates a **Myocardial Infarction (MI)** patient:
-- 58-year-old female with chest pain
-- History of angina and hypertension
-- Critical vitals: tachycardia, hypotension, low SpO2
-- Transport time: ~8 minutes
-- Expected outcome: CODE BLUE PREP alert + Catheter Lab activation
-
-## 🛑 Stopping the Dashboard
-
-Press `Ctrl+C` in the terminal to stop the Streamlit server.
-
-## 📝 Project Structure
-
-```
-Hackathon Project/
-├── dashboard/
-│   └── er_dashboard.py          # Main dashboard UI
-├── simulators/
-│   ├── telemetry_simulator.py   # Vital signs simulator
-│   └── emt_voice_simulator.py   # Voice notes simulator
-├── pipeline/
-│   └── ambulance_pipeline.py    # Pathway processing pipeline
-├── utils/
-│   └── pii_redactor.py          # HIPAA PII redaction
-├── data/
-│   └── hospital_protocols.txt   # ER protocols for RAG
-└── test_system.py               # System verification tests
-```
-
-## 🔧 Troubleshooting
-
-**Issue: "ModuleNotFoundError"**
-```bash
+cd HIPAA-Compliant-Medical-Triage-AI-System
 pip install -r requirements.txt
 ```
 
-**Issue: PII redaction not working**
+**Dashboard essentials** (if not already installed):
+
 ```bash
+pip install streamlit plotly pandas
+```
+
+Optional for Presidio-based tests in `test_system.py`:
+
+```bash
+pip install presidio-analyzer presidio-anonymizer
 python -m spacy download en_core_web_lg
 ```
 
-**Issue: Dashboard won't start**
-- Check if port 8501 is available
-- Try: `streamlit run dashboard/er_dashboard.py --server.port 8502`
+Optional for full Pathway + OpenAI RAG pipeline:
 
-## 🎓 Key Features Demonstrated
+```bash
+# Pathway may require a supported platform; dashboard demo works without it
+export OPENAI_API_KEY=sk-your-key-here   # Windows: set OPENAI_API_KEY=...
+```
 
-✅ **Real-time data streaming** with Pathway framework  
-✅ **Dual stream processing** (telemetry + voice)  
-✅ **Critical alerting system** with threshold monitoring  
-✅ **HIPAA-compliant PII redaction** using Presidio  
-✅ **RAG-based protocol analysis** (when OpenAI configured)  
-✅ **Interactive ER dashboard** with Streamlit  
-✅ **Live visualization** with Plotly charts  
+## Run the dashboard (recommended)
 
-## 📞 Next Steps
+```bash
+streamlit run dashboard/advanced_clinical_dashboard.py
+```
 
-1. Run the dashboard: `streamlit run dashboard/er_dashboard.py`
-2. Watch the simulated ambulance scenario
-3. Observe the critical alerts trigger
-4. See PII redaction in action
-5. Review AI recommendations
+Open **http://localhost:8501**
 
-## 💡 Hackathon Highlights
+### What you will see
 
-This project demonstrates:
-- **Pathway Framework** for real-time stream processing
-- **Pathway LLM xPack** integration (ready for RAG)
-- **Emergency medicine workflow** optimization
-- **Data privacy** in healthcare applications
-- **AI-assisted decision making** for critical care
+- **Fleet sidebar** — multiple ambulances, hospital capacity bars
+- **Live vitals** — HR, SpO2, BP with trend charts
+- **Clinical intelligence** — 8 scores + severity level
+- **Multi-agent consensus** — diagnostic, severity, and protocol agents
+- **Human-in-the-loop** — review panel when agents disagree
+- **EMS comms tab** — redacted EMT field notes (Aparavi-style)
+- **Protocols & AI tab** — activated checklists and intervention forecasts
 
----
+## Demo flow (5 minutes)
 
-**Ready to launch? Run:** `streamlit run dashboard/er_dashboard.py`
+1. Select **P-2024-001** (Chest Pain) — STEMI pathway, alerts, protocols
+2. Watch **Multi-agent consensus** — conflicts may trigger **clinician review**
+3. Open **Reasoning trace** in the consensus section
+4. Click **Confirm severity-led** or **Confirm diagnostic-led** to clear HITL
+5. Switch to **P-2024-002** (Stroke) — different pathway and scores
+6. Use **Register incoming unit** to add another ambulance
+7. Wait for **ETA → 0** — handoff summary and resource updates
+
+## Test components
+
+```bash
+python test_system.py
+python ai_modules/consensus.py
+python ai_modules/clinical_scoring.py
+python ai_modules/ai_triage.py
+python utils/aparavi_redactor.py
+```
+
+## Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| `ModuleNotFoundError: plotly` | `pip install plotly` |
+| Port 8501 in use | `streamlit run ... --server.port 8502` |
+| Faint metric text | Ensure `.streamlit/config.toml` exists (light theme) |
+| Presidio import error | Skip `utils/pii_redactor.py` tests or install Presidio + spaCy |
+
+## Other dashboards (legacy)
+
+```bash
+streamlit run dashboard/improved_er_dashboard.py
+streamlit run dashboard/er_dashboard.py
+```
+
+Use **advanced_clinical_dashboard.py** for presentations.
+
+## Documentation
+
+- [README.md](README.md) — full overview
+- [docs/CONSENSUS_LAYER.md](docs/CONSENSUS_LAYER.md) — multi-agent consensus & HITL
+- [ADVANCED_FEATURES.md](ADVANCED_FEATURES.md) — technical feature reference
+- [IMPROVEMENTS.md](IMPROVEMENTS.md) — changelog-style improvements

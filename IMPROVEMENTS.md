@@ -1,8 +1,37 @@
-# 🎉 System Improvements
+# System Improvements
 
-## Recent Enhancements
+## v3.0 — Clinical Command + Consensus (May 2025)
 
-### 1. ✅ Enhanced Patient Tracking
+### Multi-agent consensus layer
+- New `ai_modules/consensus.py` with Diagnostic, Severity, and Protocol agents
+- Conflict detection (alert vs severity, competing pathways, protocol gaps)
+- Severity override for CRITICAL/EMERGENT with mandatory HITL when diagnostic disagrees
+- Timestamped reasoning trace for audit transparency
+- Documentation: [docs/CONSENSUS_LAYER.md](docs/CONSENSUS_LAYER.md)
+
+### Dashboard overhaul
+- Main app: `dashboard/advanced_clinical_dashboard.py`
+- UI theme: `dashboard/ui_theme.py` (clinical palette, readable metrics)
+- Streamlit light theme: `.streamlit/config.toml`
+- Fleet sidebar, capacity progress bars, tabbed clinical / EMS / comms views
+- Live EMT notes with Aparavi-style redaction in **EMS comms** tab
+
+### Engineering fixes
+- Optional Pathway import in simulators (dashboard runs without Pathway on Windows)
+- Lazy `utils` package imports (no Presidio required for dashboard)
+- Plotly chart styling fix (`titlefont` removed for Plotly 6.x)
+- `.gitignore` updated (`__pycache__`, `.env`, secrets)
+
+### Run command
+```bash
+streamlit run dashboard/advanced_clinical_dashboard.py
+```
+
+---
+
+## v2.x — Recent Enhancements
+
+### 1. Enhanced Patient Tracking
 
 **Problem Solved:** Hospital staff now have clear visibility of which patient data they're viewing.
 
@@ -210,6 +239,6 @@ Based on these improvements, future additions could include:
 
 ---
 
-**Both dashboards are available:**
-- Original: `streamlit run dashboard/er_dashboard.py`
-- Improved: `streamlit run dashboard/improved_er_dashboard.py`
+**Dashboards:**
+- **Recommended:** `streamlit run dashboard/advanced_clinical_dashboard.py`
+- Legacy: `improved_er_dashboard.py`, `er_dashboard.py`

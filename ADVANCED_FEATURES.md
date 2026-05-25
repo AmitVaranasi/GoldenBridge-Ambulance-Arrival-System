@@ -1,6 +1,40 @@
-## 🚀 Advanced Clinical Features - Implementation Summary
+## Advanced Clinical Features — Implementation Summary
 
-### ✅ Implemented Features
+**Current production UI:** `dashboard/advanced_clinical_dashboard.py` (v3.0)  
+**See also:** [docs/CONSENSUS_LAYER.md](docs/CONSENSUS_LAYER.md)
+
+---
+
+### v3.0 — Clinical Command Dashboard + Consensus (May 2025)
+
+| Feature | Module | Dashboard |
+|---------|--------|-----------|
+| Clinical command UI | `dashboard/ui_theme.py` | Light theme, Plotly charts, native metrics |
+| Multi-agent consensus | `ai_modules/consensus.py` | Multi-agent consensus panel |
+| Human-in-the-loop | `ConsensusEngine.reconcile()` | Review buttons + sidebar queue |
+| Reasoning trace | `consensus.py` | Audit expander |
+| EMS voice feed (redacted) | `aparavi_redactor` | EMS comms tab |
+| Fleet + capacity sidebar | `advanced_clinical_dashboard.py` | Sidebar |
+
+**Consensus agents:** `DiagnosticAgent`, `SeverityAgent`, `ProtocolAgent`  
+**Resolution modes:** `AUTO`, `SEVERITY_OVERRIDE`, `HITL_PENDING`, `CLINICIAN_CONFIRMED`
+
+```python
+from ai_modules import ClinicalScorer, AITriagePredictor, ConsensusEngine
+
+# After triage outputs:
+consensus = ConsensusEngine.reconcile(
+    patient_id, chief_complaint, severity, alerts,
+    predictions, protocols, scores,
+    clinician_ack=None,
+)
+final_severity = consensus["final_severity"]
+requires_hitl = consensus["requires_hitl"]
+```
+
+---
+
+### Implemented Features (core)
 
 #### 1. **AI Predicted Severity Score** ✅
 - **Module**: `ai_modules/ai_triage.py` → `AITriagePredictor.predict_severity()`
@@ -62,11 +96,17 @@
   - **Airway Prep**: Anesthesia, RSI medications
   - **Code Blue Prep**: Crash cart, defib ready
 
-### 📋 Features Ready for Integration
+### Dashboard-integrated features (v3.0)
 
-The following features have backend modules ready and need dashboard integration:
+The following are **live** in `advanced_clinical_dashboard.py`:
 
-#### 7. **Detailed Patient View** (Backend Ready)
+- Detailed patient view (hero, demographics, complaint, ETA)
+- EMS treatment tracking (medications, interventions, CPR/defib/IV)
+- Hospital resource bars with arrival-based consumption
+- Multi-ambulance fleet selector
+- Consensus + HITL workflow
+
+#### Legacy reference — patient data shape
 **Data Structure Available**:
 ```python
 {
@@ -269,6 +309,10 @@ patient_data.update({
 - Handoff summary generation
 - Automated protocol activation
 
-**Ready for Dashboard Integration**: All modules are production-ready and can be integrated into the Streamlit dashboard with the examples provided above.
+**Dashboard entry point:**
 
-**Impact**: This transforms the ambulance system from passive monitoring to active clinical decision support, potentially saving minutes in critical care delivery.
+```bash
+streamlit run dashboard/advanced_clinical_dashboard.py
+```
+
+**Impact:** Passive monitoring becomes active clinical decision support with auditable multi-agent reconciliation before the ED acts on conflicting signals.
