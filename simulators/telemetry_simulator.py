@@ -3,7 +3,6 @@ Telemetry Simulator - Simulates ambulance vital signs monitoring
 Generates realistic high-frequency streams of Heart Rate, SpO2, and Blood Pressure
 """
 
-import pathway as pw
 import time
 import random
 import json
@@ -62,6 +61,14 @@ class TelemetrySimulator:
     
     def create_pathway_stream(self):
         """Create a Pathway streaming table from telemetry data"""
+        try:
+            import pathway as pw
+        except ImportError as e:
+            raise ImportError(
+                "Pathway is required for create_pathway_stream(). "
+                "Install with: pip install pathway"
+            ) from e
+
         def telemetry_generator():
             """Generator for Pathway"""
             for vitals in self.stream_data(interval=2.0):

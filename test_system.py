@@ -82,8 +82,30 @@ except Exception as e:
     print(f"❌ PII redactor failed: {e}")
     print("   Note: Presidio models may need to be downloaded: python -m spacy download en_core_web_lg")
 
-# Test 5: Critical Vitals Detection
-print("\n[Test 5] Testing Critical Vitals Detection...")
+# Test 5: Multi-agent consensus
+print("\n[Test 5] Testing Multi-Agent Consensus...")
+try:
+    from ai_modules.consensus import ConsensusEngine
+    result = ConsensusEngine.reconcile(
+        "P-TEST",
+        "Chest Pain",
+        {"score": 35, "level": "URGENT", "contributing_factors": []},
+        ["STEMI"],
+        {"predictions": {"likely_stemi": True}, "confidence_scores": {"stemi": 0.9}},
+        {"STEMI_PROTOCOL": ["Activate cath lab"]},
+        {},
+    )
+    assert result["requires_hitl"] is True
+    assert len(result["conflicts"]) >= 1
+    assert "reasoning_trace" in result
+    print(f"   Mode: {result['resolution_mode']}, conflicts: {result['conflict_count']}")
+    print("✅ Consensus layer working correctly")
+except Exception as e:
+    print(f"❌ Consensus test failed: {e}")
+    sys.exit(1)
+
+# Test 6: Critical Vitals Detection
+print("\n[Test 6] Testing Critical Vitals Detection...")
 try:
     # Create critical condition vitals
     critical_sim = TelemetrySimulator(patient_condition="deteriorating")
@@ -104,8 +126,8 @@ try:
 except Exception as e:
     print(f"❌ Critical vitals detection failed: {e}")
 
-# Test 6: Hospital Protocols File
-print("\n[Test 6] Testing Hospital Protocols...")
+# Test 7: Hospital Protocols File
+print("\n[Test 7] Testing Hospital Protocols...")
 try:
     protocol_path = "data/hospital_protocols.txt"
     if os.path.exists(protocol_path):
@@ -120,7 +142,7 @@ except Exception as e:
     print(f"❌ Protocol loading failed: {e}")
 
 # Test 7: Check Dependencies
-print("\n[Test 7] Checking Required Dependencies...")
+print("\n[Test 8] Checking Required Dependencies...")
 dependencies = {
     'pathway': 'Pathway Framework',
     'streamlit': 'Streamlit Dashboard',

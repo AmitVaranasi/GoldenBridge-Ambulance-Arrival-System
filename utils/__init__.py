@@ -1,8 +1,6 @@
 """
-Utilities package for Smart Ambulance Pre-Arrival System
-Contains PII redaction and other utility functions
+Utilities package for Smart Ambulance Pre-Arrival System.
+Import submodules directly, e.g. utils.aparavi_redactor or utils.pii_redactor.
 """
 
-from .pii_redactor import PIIRedactor, get_redactor, redact_pii
-
-__all__ = ['PIIRedactor', 'get_redactor', 'redact_pii']
+__all__ = ["aparavi_redactor", "pii_redactor"]

@@ -3,7 +3,6 @@ EMT Voice/Text Simulator - Simulates transcribed voice notes from EMTs
 Generates realistic medical reports and updates during transport
 """
 
-import pathway as pw
 import time
 import random
 from datetime import datetime
@@ -81,6 +80,14 @@ class EMTVoiceSimulator:
     
     def create_pathway_stream(self):
         """Create a Pathway streaming table from voice notes"""
+        try:
+            import pathway as pw
+        except ImportError as e:
+            raise ImportError(
+                "Pathway is required for create_pathway_stream(). "
+                "Install with: pip install pathway"
+            ) from e
+
         def voice_generator():
             """Generator for Pathway"""
             for note in self.stream_data(interval=15.0):
